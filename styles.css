@@ -1,0 +1,45 @@
+/* General Body Styles */
+body {
+  font-family: Arial, sans-serif; /* Sets the font for the page */
+  background-color: #f4f4f9; /* Light grey background for the page */
+  padding: 20px; /* Adds space around the content */
+  display: flex; /* Uses flexbox for layout */
+  flex-direction: column; /* Aligns elements vertically */
+  align-items: center; /* Centers items horizontally */
+  gap: 20px; /* Adds space between elements */
+}
+
+/* Button Styles */
+button {
+  background-color: #4caf50; /* Green background for buttons */
+  color: white; /* White text color */
+  border: none; /* No borders */
+  padding: 10px 20px; /* Padding inside the buttons */
+  text-align: center; /* Center text horizontally */
+  text-decoration: none; /* No underlines */
+  display: inline-block; /* Allows buttons to sit next to other elements */
+  font-size: 16px; /* Sets the font size */
+  border-radius: 8px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+button:hover {
+  background-color: #45a049; /* Darker green when hovered */
+}
+
+/* Input Field Styles */
+input {
+  padding: 10px; /* Padding inside the input */
+  font-size: 16px; /* Sets the font size */
+  border: 2px solid #ccc; /* Grey border */
+  border-radius: 4px; /* Rounded corners */
+  display: block; /* Makes input take the full width available */
+  width: 200px; /* Sets the width of the input field */
+}
+
+/* Label Styles */
+label {
+  font-size: 16px; /* Sets the font size for labels */
+  color: #333; /* Dark grey color for text */
+}
