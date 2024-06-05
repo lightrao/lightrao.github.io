@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Heart Sutra</title>
+    <!-- <link rel="stylesheet" href="styles.css" /> -->
+  </head>
+  <body>
+    <main>
+      <section>
+        <p>
+          <span id="showMetaMaskAccountAddressConnectedSpan" aria-live="polite"
+            >No accounts are connected, please connect MetaMask.</span
+          >
+        </p>
+        <button id="connectButton" aria-label="Connect to MetaMask">
+          Connect MetaMask
+        </button>
+      </section>
+
+      <section>
+        <div>
+          <p>
+            Current minting price per token:
+            <span
+              id="showCurrentMintPricePerTokenSpan"
+              aria-live="polite"
+            ></span>
+          </p>
+          <button
+            id="showCurrentMintPricePerTokenButton"
+            aria-label="Show current minting price per token"
+          >
+            Show current minting price per token
+          </button>
+        </div>
+      </section>
+
+      <section>
+        <p>
+          The tokens ID you are owning:
+          <span id="showTokensIdOfTheOwnerSpan" aria-live="polite"></span>
+        </p>
+        <button
+          id="addAllNFTsToMetaMaskButton"
+          aria-label="Add all NFTs to MetaMask"
+        >
+          Add all NFTs to MetaMask
+        </button>
+      </section>
+
+      <section>
+        <form id="fundForm">
+          <fieldset>
+            <legend>Fund</legend>
+            <label for="ethAmountToFundInput"
+              >ETH amount (greater than 0.01)</label
+            >
+            <input
+              id="ethAmountToFundInput"
+              name="ethAmountToFund"
+              placeholder="ETH amount (greater than 0.01)"
+              type="number"
+              min="0.01"
+              step="0.01"
+              required
+            />
+            <button type="submit" id="fundButton">Fund</button>
+          </fieldset>
+        </form>
+      </section>
+
+      <section>
+        <form id="publicMintToForm">
+          <fieldset>
+            <legend>Public Mint To</legend>
+            <label for="publicMintToRecipientInput">Recipient address</label>
+            <input
+              id="publicMintToRecipientInput"
+              name="recipient"
+              placeholder="Recipient address"
+              required
+              autocomplete="off"
+              spellcheck="false"
+              value=""
+            />
+            <label for="publicMintToNbTokensInput"
+              >Number of tokens (from 1 to 100)</label
+            >
+            <input
+              id="publicMintToNbTokensInput"
+              name="nbTokens"
+              placeholder="Number of tokens (from 1 to 100)"
+              type="number"
+              min="1"
+              max="100"
+              step="1"
+              value="1"
+              required
+            />
+            <p>
+              Total minting price:
+              <span
+                id="showPublicMintToTotalMintPriceSpan"
+                aria-live="polite"
+              ></span>
+            </p>
+            <button type="submit" id="publicMintToButton">
+              Public mint to
+            </button>
+          </fieldset>
+        </form>
+      </section>
+
+      <section>
+        <form id="publicSelfMintForm">
+          <fieldset>
+            <legend>Public Self Mint</legend>
+            <label for="publicSelfMintNbTokensInput"
+              >Number of tokens to mint(from 1 to 100)</label
+            >
+            <input
+              id="publicSelfMintNbTokensInput"
+              name="nbTokens"
+              placeholder="Number of tokens to mint (from 1 to 100)"
+              type="number"
+              min="1"
+              max="100"
+              step="1"
+              required
+            />
+            <p>
+              Total minting price:
+              <span
+                id="showPublicSelfTotalMintPriceSpan"
+                aria-live="polite"
+              ></span>
+            </p>
+            <button type="submit" id="publicSelfMintButton">
+              Public self mint
+            </button>
+          </fieldset>
+        </form>
+      </section>
+
+      <section>
+        <div>
+          <p>
+            Tokens left:
+            <span id="showTokensLeftSpan" aria-live="polite"></span>
+          </p>
+          <button id="showTokensLeftButton" aria-label="Show tokens left">
+            Show tokens left
+          </button>
+        </div>
+      </section>
+
+      <section>
+        <div>
+          <p>
+            Total Supply:
+            <span id="showTotalSupplySpan" aria-live="polite"></span>
+          </p>
+          <button id="showTotalSupplyButton" aria-label="Show total Supply">
+            Show total Supply
+          </button>
+        </div>
+      </section>
+
+      <section>
+        <form id="ownerMintToForm">
+          <fieldset>
+            <legend>Owner Mint To</legend>
+            <label for="ownerMintToRecipientInput">Recipient address</label>
+            <input
+              id="ownerMintToRecipientInput"
+              name="recipient"
+              placeholder="Recipient address"
+              required
+              autocomplete="off"
+              spellcheck="false"
+            />
+            <label for="ownerMintToNbTokensInput"
+              >Number of tokens (from 1 to 100)</label
+            >
+            <input
+              id="ownerMintToNbTokensInput"
+              name="nbTokens"
+              placeholder="Number of tokens to mint (from 1 to 100)"
+              type="number"
+              min="1"
+              max="100"
+              step="1"
+              required
+            />
+            <button type="submit" id="ownerMintToButton">Owner mint to</button>
+          </fieldset>
+        </form>
+      </section>
+
+      <section>
+        <form id="ownerSelfMintForm">
+          <fieldset>
+            <legend>Owner Self Mint</legend>
+            <label for="ownerSelfMintNbTokensInput"
+              >Number of tokens (from 1 to 100)</label
+            >
+            <input
+              id="ownerSelfMintNbTokensInput"
+              name="nbTokens"
+              placeholder="Number of tokens to mint (from 1 to 100)"
+              type="number"
+              min="1"
+              max="100"
+              step="1"
+              required
+            />
+            <button type="submit" id="ownerSelfMintButton">
+              Owner self mint
+            </button>
+          </fieldset>
+        </form>
+      </section>
+
+      <section>
+        <p>
+          The balance of Heart Sutra NFT's contract is:
+          <span id="showContractBalanceSpan" aria-live="polite"
+            >(Waiting for refreshing...)</span
+          >
+        </p>
+        <button id="balanceButton" aria-label="Get contract balance">
+          REFRESH BALANCE
+        </button>
+        <button id="withdrawButton" aria-label="Owner withdraw">
+          OWNER WITHDRAW
+        </button>
+      </section>
+
+      <section>
+        <p>
+          The sale state of Heart Sutra NFT's contract is:
+          <span id="showSaleStateSpan" aria-live="polite"
+            >(Waiting for refreshing...)</span
+          >
+        </p>
+        <button id="showSaleStateButton" aria-label="Show sale state">
+          Show sale state
+        </button>
+        <form id="setSaleStateForm">
+          <fieldset>
+            <legend>Set sale state of NFT</legend>
+            <input
+              type="radio"
+              id="trueStateOfSaleInput"
+              name="saleState"
+              value="true"
+            />
+            <label for="trueStateOfSaleInput">True</label>
+            <input
+              type="radio"
+              id="falseStateOfSaleInput"
+              name="saleState"
+              value="false"
+              checked
+            />
+            <label for="falseStateOfSaleInput">False</label>
+            <button type="submit" id="setSaleStateButton">
+              Set sale state
+            </button>
+          </fieldset>
+        </form>
+      </section>
+    </main>
+    <script src="../index.js" type="module"></script>
+  </body>
+</html>

@@ -1,22 +1,840 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Heart Sutra NFT</title>
+    <link rel="icon" type="image/x-icon" href="/icons/favicon.ico" />
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fund Me App</title>
-    <link rel="stylesheet" href="styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/styles/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inconsolata"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <style>
+      body,
+      html {
+        height: 100%;
+        font-family: "Inconsolata", sans-serif;
+      }
+      .onlyOwner {
+        display: none;
+      }
+    </style>
   </head>
-
   <body>
-    <button id="connectButton">Connect</button>
-    <button id="balanceButton">getBalance</button>
-    <button id="withdrawButton">Withdraw</button>
-    <!-- <form> -->
-    <label for="ethAmount">ETH Amount</label>
-    <input id="ethAmount" placeholder="0.1" />
-    <button type="button" id="fundButton">Fund</button>
-    <!-- </form> -->
-  </body>
+    <!-- Navbar (sit on top) -->
+    <div class="w3-top">
+      <div class="w3-bar w3-black w3-card w3-large w3-left-align" id="myNavbar">
+        <a href="#home" class="w3-bar-item w3-button w3-wide">
+          <img
+            src="/images/HeartSutraAnimLogo.svg"
+            alt="Logo"
+            style="height: 24px; vertical-align: middle"
+          />
+          HOME
+        </a>
+        <!-- Right-sided navbar links -->
+        <div class="w3-right w3-hide-small">
+          <a
+            href="#about"
+            class="w3-bar-item w3-button w3-border-right w3-border-left"
+            >ABOUT</a
+          >
+          <a href="#tokenomics" class="w3-bar-item w3-button w3-border-right"
+            >TOKENOMICS</a
+          >
+          <a href="#how-to" class="w3-bar-item w3-button w3-border-right"
+            >HOW TO TRANSACTION</a
+          >
+          <a href="#connect" class="w3-bar-item w3-button w3-border-right"
+            >CONNECT WALLET</a
+          >
+          <a
+            href="#show-mint-price-and-token-numbers"
+            class="w3-bar-item w3-button w3-border-right"
+            >SHOW PRICE & NUMBERS</a
+          >
+          <a
+            href="#public-self-mint"
+            class="w3-bar-item w3-button w3-border-right"
+            >MINT YOURSELF</a
+          >
+          <a
+            href="#public-mint-to"
+            class="w3-bar-item w3-button w3-border-right"
+            >MINT TO FRIENDS</a
+          >
+          <a
+            href="#add-nfts-to-metamask"
+            class="w3-bar-item w3-button w3-border-right"
+            >ADD NFTs TO WALLET</a
+          >
+          <a href="#road-map" class="w3-bar-item w3-button w3-border-right"
+            >ROAD MAP</a
+          >
+          <a href="#fund" class="w3-bar-item w3-button w3-border-right"
+            >DONATE</a
+          >
+        </div>
+      </div>
+    </div>
 
-  <script src="./index.js" type="module"></script>
+    <!-- Header with image -->
+    <header
+      class="w3-display-container w3-content w3-wide"
+      style="
+        max-width: 100%;
+        min-width: 500px;
+        padding-top: 44px;
+        margin-bottom: 32px;
+      "
+      id="home"
+    >
+      <img
+        class="w3-image"
+        src="/images/HeartSutraWxz.png"
+        alt="Heart Sutra WangXiZhi"
+        style="width: 100%; height: auto"
+      />
+      <div class="w3-display-bottomleft w3-padding-small w3-opacity">
+        <h1 class="w3-large w3-text-white">Heart Sutra NFT</h1>
+      </div>
+    </header>
+
+    <!-- Add a background color and large text to the whole page -->
+    <div class="w3-large" style="text-align: justify">
+      <!-- About Container -->
+      <div class="w3-container" id="about" style="padding-bottom: 32px">
+        <div class="w3-content" style="max-width: 700px">
+          <h5 class="w3-center w3-padding-48">
+            <span class="w3-tag w3-wide w3-xlarge"
+              >ABOUT THE HEART SUTRA NFT</span
+            >
+          </h5>
+          <p class="w3-text-grey">
+            <strong>The Heart Sutra</strong> is a popular sutra in Mahāyāna
+            Buddhism. In Sanskrit, the title Prajñāpāramitāhṛdaya translates as
+            "The Heart of the Perfection of Wisdom". The Sutra famously states,
+            "Form is emptiness (śūnyatā), emptiness is form." It is a condensed
+            exposition on the Buddhist Mahayana teaching of the Two Truths
+            doctrine, which says that ultimately all phenomena are Śūnyatā
+            (emptiness). It has been called "the most frequently used and
+            recited text in the entire Mahayana Buddhist tradition." The text
+            has been translated into English dozens of times from Chinese,
+            Sanskrit, and Tibetan, as well as other source languages.
+          </p>
+          <p class="w3-text-grey">
+            <strong>The Heart Sutra NFT</strong> is a unique digital collectible
+            that merges ancient Buddhist wisdom with cutting-edge blockchain
+            technology. The Heart Sutra, a vital text in Buddhist philosophy
+            known for its profound teachings on emptiness and wisdom, is
+            preserved in this NFT, bridging ancient wisdom with modern digital
+            art. By storing the Heart Sutra text and metadata directly on-chain,
+            this NFT ensures the scripture's immutability and transparency.
+            Featuring designs in ancient oriental colors and texts in Chinese,
+            English, and Sanskrit, it offers both cultural and artistic value.
+            With a maximum supply of 10,000 and a mint price increasing from 0
+            to 10 ETH, owning this NFT means preserving timeless teachings on a
+            secure, modern platform. Invest in a piece of spiritual heritage and
+            modern innovation with the Heart Sutra NFT.
+          </p>
+        </div>
+      </div>
+
+      <!-- Tokenomics Container -->
+      <div class="w3-container" id="tokenomics" style="padding-bottom: 32px">
+        <div class="w3-content" style="max-width: 700px">
+          <h5 class="w3-center w3-padding-48">
+            <span class="w3-tag w3-wide w3-xlarge">TOKENOMICS</span>
+          </h5>
+          <div class="w3-panel w3-leftbar w3-sand w3-large w3-serif">
+            <p>Token Supply: 10,000</p>
+            <p>
+              Mint price per token: increase linearly from 0 ETH to 10 ETH with
+              minted token number increase
+            </p>
+            <p>Minimum mint number limit per time: 1</p>
+            <p>Maximum mint number limit per time: 100</p>
+            <p>
+              Token address on Ethereum:
+              0x41d8f6aB4d01a07a40F7E6bC32574A906acC1795
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- How to Container -->
+      <div class="w3-container" id="how-to" style="padding-bottom: 32px">
+        <div class="w3-content" style="max-width: 700px">
+          <h5 class="w3-center w3-padding-48">
+            <span class="w3-tag w3-wide w3-xlarge">HOW TO TRANSACTION</span>
+          </h5>
+
+          <h5>Step 1: Create a Wallet</h5>
+          <p class="w3-text-grey">
+            Download MetaMask or your wallet of choice from the app store or
+            Google Play store for free. Desktop users, download the Google
+            Chrome extension by going to
+            <a href="https://metamask.io/" target="_blank"><i>metamask.io</i></a
+            >.
+          </p>
+          <br />
+
+          <h5>Step 2: Get Some ETH</h5>
+          <p class="w3-text-grey">
+            Have ETH in your wallet to buy or mint
+            <strong>The Heart Sutra NFT</strong>. If you don't have any ETH, you
+            can buy directly on MetaMask, transfer from another wallet, or buy
+            on another exchange and send it to your wallet.
+          </p>
+          <br />
+
+          <h5>Step 3: Mint Tokens</h5>
+          <p class="w3-text-grey">
+            Connect to your wallet by clicking the
+            <strong>CONNECT METAMASK</strong> button and then click the
+            <strong>MINT</strong> button. When MetaMask prompts you for a wallet
+            signature, sign. You can add the minted tokens into your MetaMask by
+            clicking the <strong>ADD NFTs INTO METAMASK</strong> button.
+          </p>
+          <br />
+
+          <h5>Step 4: Buy or Sell Tokens</h5>
+          <p class="w3-text-grey">
+            Go to opensea.io or blur.io in your browser and connect your wallet.
+            Paste the
+            <strong>The Heart Sutra NFT</strong> token address into the search
+            bar to find it and then buy or sell.
+          </p>
+          <br />
+        </div>
+      </div>
+
+      <!-- Connect Container -->
+      <div class="w3-container" id="connect" style="padding-bottom: 32px">
+        <div class="w3-content" style="max-width: 700px">
+          <h5 class="w3-center w3-padding-48">
+            <span class="w3-tag w3-wide w3-xlarge">CONNECT TO METAMASK</span>
+          </h5>
+
+          <p class="w3-text-grey">
+            <strong>Note:</strong> Please connect MetaMask to mint tokens.
+          </p>
+          <div class="w3-panel w3-leftbar w3-sand w3-large w3-serif">
+            <p>
+              <span
+                id="showMetaMaskAccountAddressConnectedSpan"
+                aria-live="polite"
+                >No accounts are connected, please connect MetaMask.</span
+              >
+            </p>
+          </div>
+          <p>
+            <button
+              id="connectButton"
+              aria-label="Connect to MetaMask"
+              class="w3-btn w3-cyan w3-ripple"
+            >
+              CONNECT METAMASK
+            </button>
+          </p>
+          <br />
+        </div>
+      </div>
+
+      <!-- Show mint price & token numbers Container -->
+      <div
+        class="w3-container"
+        id="show-mint-price-and-token-numbers"
+        style="padding-bottom: 32px"
+      >
+        <div class="w3-content" style="max-width: 700px">
+          <h5 class="w3-center w3-padding-48">
+            <span class="w3-tag w3-wide w3-xlarge"
+              >SHOW MINT PRICE & TOKEN NUMBERS</span
+            >
+          </h5>
+
+          <!-- show minting price per token -->
+          <p class="w3-text-grey">
+            <strong>Note:</strong> The token minting price increases linearly
+            from 0 ETH to 10 ETH with minted token number increase.
+          </p>
+          <div class="w3-panel w3-leftbar w3-sand w3-large w3-serif">
+            <p>
+              Current minting price per token:
+              <span id="showCurrentMintPricePerTokenSpan" aria-live="polite"
+                >(Waiting for refreshing...)</span
+              >
+            </p>
+          </div>
+          <p>
+            <button
+              id="showCurrentMintPricePerTokenButton"
+              aria-label="Show current minting price per token"
+              class="w3-btn w3-cyan w3-ripple"
+            >
+              REFRESH MINTING PRICE
+            </button>
+          </p>
+          <br />
+
+          <!-- show token numbers already minted -->
+          <p class="w3-text-grey">
+            <strong>Note:</strong> The token numbers already minted equals the
+            numbers of maximum token supply (10,000) minus the token numbers
+            left that can be minted.
+          </p>
+          <div class="w3-panel w3-leftbar w3-sand w3-large w3-serif">
+            <p>
+              Token numbers already minted:
+              <span id="showTotalSupplySpan" aria-live="polite"
+                >(Waiting for refreshing...)</span
+              >
+            </p>
+          </div>
+          <p>
+            <button
+              id="showTotalSupplyButton"
+              aria-label="Show total supply"
+              class="w3-btn w3-cyan w3-ripple"
+            >
+              REFRESH NUMBERS MINTED
+            </button>
+          </p>
+          <br />
+
+          <!-- Show tokens left can be minted -->
+          <p class="w3-text-grey">
+            <strong>Note:</strong> The token numbers left that can be minted is
+            equal to the maximum token supply (10,000) minus the numbers of
+            tokens already minted.
+          </p>
+          <div class="w3-panel w3-leftbar w3-sand w3-large w3-serif">
+            <p>
+              Tokens left that can be minted:
+              <span id="showTokensLeftSpan" aria-live="polite"
+                >(Waiting for refreshing...)</span
+              >
+            </p>
+          </div>
+          <p>
+            <button
+              id="showTokensLeftButton"
+              aria-label="Show tokens left"
+              class="w3-btn w3-cyan w3-ripple"
+            >
+              REFRESH NUMBERS LEFT
+            </button>
+          </p>
+          <br />
+        </div>
+      </div>
+
+      <!-- Public self mint Container -->
+      <div
+        class="w3-container"
+        id="public-self-mint"
+        style="padding-bottom: 32px"
+      >
+        <div class="w3-content" style="max-width: 700px">
+          <h5 class="w3-center w3-padding-48">
+            <span class="w3-tag w3-wide w3-xlarge">MINT NFTs TO YOURSELF</span>
+          </h5>
+
+          <p class="w3-text-grey">
+            <strong>Note:</strong> Mint NFT to the MetaMask wallet which is
+            currently connected. Mint price equals the minting number times
+            current minting price per token. To get the minting price you first
+            need to click the <strong>REFRESH MINTING PRICE</strong> button
+            above.
+          </p>
+
+          <div class="w3-panel w3-leftbar w3-sand w3-large w3-serif">
+            <p>
+              Total minting price:
+              <span id="showPublicSelfTotalMintPriceSpan" aria-live="polite"
+                >(Input minting number to refresh...)</span
+              >
+            </p>
+          </div>
+
+          <form id="publicSelfMintForm">
+            <p>
+              <input
+                class="w3-input w3-padding-16 w3-border"
+                id="publicSelfMintNbTokensInput"
+                name="nbTokens"
+                placeholder="Number of tokens to mint (from 1 to 100)"
+                type="number"
+                min="1"
+                max="100"
+                step="1"
+                required
+              />
+            </p>
+            <p>
+              <button
+                class="w3-btn w3-red w3-ripple"
+                type="submit"
+                id="publicSelfMintButton"
+              >
+                MINT TO YOURSELF
+              </button>
+            </p>
+          </form>
+        </div>
+      </div>
+
+      <!-- Public mint to Container -->
+      <div
+        class="w3-container"
+        id="public-mint-to"
+        style="padding-bottom: 32px"
+      >
+        <div class="w3-content" style="max-width: 700px">
+          <h5 class="w3-center w3-padding-48">
+            <span class="w3-tag w3-wide w3-xlarge">MINT NFTs TO FRIENDS</span>
+          </h5>
+
+          <p class="w3-text-grey">
+            <strong>Note:</strong> Mint NFT to the MetaMask wallet account
+            address of your friends. Mint price equals the minting number times
+            current minting price per token. To get the minting price you first
+            need to click the <strong>REFRESH MINTING PRICE</strong> button
+            above.
+          </p>
+
+          <div class="w3-panel w3-leftbar w3-sand w3-large w3-serif">
+            <p>
+              Total minting price:
+              <span id="showPublicMintToTotalMintPriceSpan" aria-live="polite"
+                >(Input minting number to refresh...)</span
+              >
+            </p>
+          </div>
+
+          <form id="publicMintToForm">
+            <p>
+              <input
+                class="w3-input w3-padding-16 w3-border"
+                id="publicMintToRecipientInput"
+                name="recipient"
+                placeholder="Recipient address"
+                required
+                autocomplete="off"
+                spellcheck="false"
+              />
+            </p>
+            <p>
+              <input
+                class="w3-input w3-padding-16 w3-border"
+                id="publicMintToNbTokensInput"
+                name="nbTokens"
+                placeholder="Number of tokens to mint (from 1 to 100)"
+                type="number"
+                min="1"
+                max="100"
+                step="1"
+                required
+              />
+            </p>
+            <p>
+              <button
+                class="w3-btn w3-red w3-ripple"
+                type="submit"
+                id="publicMintToButton"
+              >
+                MINT TO FRIENDS
+              </button>
+            </p>
+          </form>
+        </div>
+      </div>
+
+      <!-- Add NFTs to MetaMask Container -->
+      <div
+        class="w3-container"
+        id="add-nfts-to-metamask"
+        style="padding-bottom: 32px"
+      >
+        <div class="w3-content" style="max-width: 700px">
+          <h5 class="w3-center w3-padding-48">
+            <span class="w3-tag w3-wide w3-xlarge">ADD NFTs TO METAMASK</span>
+          </h5>
+
+          <p class="w3-text-grey">
+            <strong>Note:</strong> If you minted some Heart Sutra NFTs, you can
+            add them into your MetaMask.
+          </p>
+          <div class="w3-panel w3-leftbar w3-sand w3-large w3-serif">
+            <p>
+              The tokens ID you are owning:
+              <span id="showTokensIdOfTheOwnerSpan" aria-live="polite"
+                >(Waiting for add...)</span
+              >
+            </p>
+          </div>
+          <p>
+            <button
+              id="addAllNFTsToMetaMaskButton"
+              aria-label="Add all NFTs to MetaMask"
+              class="w3-btn w3-cyan w3-ripple"
+            >
+              ADD NFTs INTO METAMASK
+            </button>
+          </p>
+          <br />
+        </div>
+      </div>
+
+      <!-- Road map Container -->
+      <div class="w3-container" id="road-map" style="padding-bottom: 32px">
+        <div class="w3-content" style="max-width: 700px">
+          <h5 class="w3-center w3-padding-48">
+            <span class="w3-tag w3-wide w3-xlarge">ROAD MAP</span>
+          </h5>
+          <div class="w3-panel w3-leftbar w3-sand w3-large w3-serif">
+            <p>Phase 1: Mint or Buy</p>
+            <p>
+              Phase 2: Vibe and HODL (When you hold, Buddha is blessing you)
+            </p>
+            <p>Phase 3: Transaction or Giveaway</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fund Container -->
+      <div class="w3-container" id="fund" style="padding-bottom: 32px">
+        <div class="w3-content" style="max-width: 700px">
+          <h5 class="w3-center w3-padding-48">
+            <span class="w3-tag w3-wide w3-xlarge">DONATE TO US</span>
+          </h5>
+
+          <p class="w3-text-grey">
+            <strong>Note:</strong> If you like
+            <strong>The Heart Sutra NFT</strong> project, please donate to us,
+            thank you very much.
+          </p>
+
+          <form id="fundForm">
+            <p>
+              <input
+                class="w3-input w3-padding-16 w3-border"
+                id="ethAmountToFundInput"
+                name="ethAmountToFund"
+                placeholder="ETH amount (greater than 0.001)"
+                type="number"
+                min="0.001"
+                step="0.001"
+                required
+              />
+            </p>
+            <p>
+              <button
+                class="w3-btn w3-red w3-ripple"
+                type="submit"
+                id="fundButton"
+              >
+                DONATE TO US
+              </button>
+            </p>
+          </form>
+        </div>
+      </div>
+
+      <div id="onlyOwnerCanSeeDiv" class="onlyOwner w3-light-grey">
+        <!-- Owner self mint Container -->
+        <div
+          class="w3-container"
+          id="owner-self-mint"
+          style="padding-bottom: 32px"
+        >
+          <div class="w3-content" style="max-width: 700px">
+            <h5 class="w3-center w3-padding-48">
+              <span class="w3-tag w3-wide w3-xlarge">OWNER SELF MINT</span>
+            </h5>
+
+            <p class="w3-text-grey">
+              <strong>Note:</strong> Contract owner mints NFTs to itself.
+            </p>
+
+            <form id="ownerSelfMintForm">
+              <p>
+                <input
+                  class="w3-input w3-padding-16 w3-border"
+                  id="ownerSelfMintNbTokensInput"
+                  name="nbTokens"
+                  placeholder="Number of tokens to mint (from 1 to 100)"
+                  type="number"
+                  min="1"
+                  max="100"
+                  step="1"
+                  required
+                />
+              </p>
+              <p>
+                <button
+                  class="w3-btn w3-orange w3-ripple"
+                  type="submit"
+                  id="ownerSelfMintButton"
+                >
+                  OWNER SELF MINT
+                </button>
+              </p>
+            </form>
+          </div>
+        </div>
+
+        <!-- Owner mint to Container -->
+        <div
+          class="w3-container"
+          id="owner-mint-to"
+          style="padding-bottom: 32px"
+        >
+          <div class="w3-content" style="max-width: 700px">
+            <h5 class="w3-center w3-padding-48">
+              <span class="w3-tag w3-wide w3-xlarge">OWNER MINT TO</span>
+            </h5>
+
+            <p class="w3-text-grey">
+              <strong>Note:</strong> Contract owner mints NFTs to other people's
+              MetaMask account.
+            </p>
+            <form id="ownerMintToForm">
+              <p>
+                <input
+                  class="w3-input w3-padding-16 w3-border"
+                  id="ownerMintToRecipientInput"
+                  name="recipient"
+                  placeholder="Recipient address"
+                  required
+                  autocomplete="off"
+                  spellcheck="false"
+                />
+              </p>
+              <p>
+                <input
+                  class="w3-input w3-padding-16 w3-border"
+                  id="ownerMintToNbTokensInput"
+                  name="nbTokens"
+                  placeholder="Number of tokens to mint (from 1 to 100)"
+                  type="number"
+                  min="1"
+                  max="100"
+                  step="1"
+                  required
+                />
+              </p>
+              <p>
+                <button
+                  class="w3-btn w3-orange w3-ripple"
+                  type="submit"
+                  id="ownerMintToButton"
+                >
+                  OWNER MINT TO
+                </button>
+              </p>
+            </form>
+          </div>
+        </div>
+
+        <!-- Show balance and withdraw Container -->
+        <div
+          class="w3-container"
+          id="show-balance-and-withdraw"
+          style="padding-bottom: 32px"
+        >
+          <div class="w3-content" style="max-width: 700px">
+            <h5 class="w3-center w3-padding-48">
+              <span class="w3-tag w3-wide w3-xlarge"
+                >SHOW BALANCE & WITHDRAW</span
+              >
+            </h5>
+
+            <p class="w3-text-grey">
+              <strong>Note:</strong> If the balance of the contract is greater
+              than 0, the owner of the contract can withdraw it.
+            </p>
+            <div class="w3-panel w3-leftbar w3-sand w3-large w3-serif">
+              <p>
+                The balance of Heart Sutra NFT's contract is:
+                <span id="showContractBalanceSpan" aria-live="polite"
+                  >(Waiting for refreshing...)</span
+                >
+              </p>
+            </div>
+            <p>
+              <button
+                id="balanceButton"
+                aria-label="Get contract balance"
+                class="w3-btn w3-cyan w3-ripple"
+              >
+                REFRESH BALANCE
+              </button>
+            </p>
+            <p>
+              <button
+                id="withdrawButton"
+                aria-label="Owner withdraw"
+                class="w3-btn w3-orange w3-ripple"
+              >
+                OWNER WITHDRAW
+              </button>
+            </p>
+            <br />
+          </div>
+        </div>
+
+        <!-- Show and set sale state Container -->
+        <div
+          class="w3-container"
+          id="show-and-set-sale-state"
+          style="padding-bottom: 32px"
+        >
+          <div class="w3-content" style="max-width: 700px">
+            <h5 class="w3-center w3-padding-48">
+              <span class="w3-tag w3-wide w3-xlarge"
+                >SHOW & SET SALE STATE</span
+              >
+            </h5>
+            <p>
+              <strong>Note:</strong> Please check the contract's sale state
+              before setting it.
+            </p>
+            <div class="w3-panel w3-leftbar w3-sand w3-large w3-serif">
+              <p>
+                The sale state of Heart Sutra NFT's contract is:
+                <span id="showSaleStateSpan" aria-live="polite"
+                  >(Waiting for refreshing...)</span
+                >
+              </p>
+            </div>
+            <p>
+              <button
+                id="showSaleStateButton"
+                aria-label="Show sale state"
+                class="w3-btn w3-cyan w3-ripple"
+              >
+                REFRESH SALE STATE
+              </button>
+            </p>
+
+            <p>
+              <strong>Note:</strong> The owner of the contract can set the sale
+              state to true so the public can mint NFTs, and vice versa.
+            </p>
+            <form id="setSaleStateForm">
+              <p>
+                <input
+                  class="w3-radio"
+                  type="radio"
+                  id="trueStateOfSaleInput"
+                  name="saleState"
+                  value="true"
+                />
+                <label for="trueStateOfSaleInput">true</label>
+              </p>
+              <p>
+                <input
+                  class="w3-radio"
+                  type="radio"
+                  id="falseStateOfSaleInput"
+                  name="saleState"
+                  value="false"
+                  checked
+                />
+                <label for="falseStateOfSaleInput">false</label>
+              </p>
+              <p>
+                <button
+                  class="w3-btn w3-orange w3-ripple"
+                  type="submit"
+                  id="setSaleStateButton"
+                >
+                  SET SALE STATE
+                </button>
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- End page content -->
+    </div>
+
+    <!-- Footer -->
+    <footer
+      class="w3-container w3-padding-64 w3-center w3-xxlarge"
+      style="margin-top: 40px"
+    >
+      <a style="text-decoration: none" href="https://blur.io/" target="_blank">
+        <img
+          src="/icons/blurIcon.png"
+          alt="Blur"
+          class="w3-opacity w3-hover-opacity-off"
+          style="width: 30px; height: 30px"
+        />
+      </a>
+      <a
+        style="text-decoration: none"
+        href="https://etherscan.io/"
+        target="_blank"
+      >
+        <img
+          src="/icons/etherscanIcon.webp"
+          alt="Etherscan"
+          class="w3-opacity w3-hover-opacity-off"
+          style="width: 30px; height: 30px"
+        />
+      </a>
+      <a
+        style="text-decoration: none"
+        href="https://opensea.io/"
+        target="_blank"
+      >
+        <img
+          src="/icons/openseaIcon.svg"
+          alt="Opensea"
+          class="w3-opacity w3-hover-opacity-off"
+          style="width: 30px; height: 30px"
+        />
+      </a>
+      <a
+        style="text-decoration: none"
+        href="https://t.me/HeartSutraNFT"
+        target="_blank"
+      >
+        <img
+          src="/icons/telegramIcon.webp"
+          alt="Telegram"
+          class="w3-opacity w3-hover-opacity-off"
+          style="width: 30px; height: 30px"
+        />
+      </a>
+      <a
+        style="text-decoration: none"
+        href="https://www.twitter.com"
+        target="_blank"
+      >
+        <img
+          src="/icons/twitterIcon.webp"
+          alt="Twitter"
+          class="w3-opacity w3-hover-opacity-off"
+          style="width: 30px; height: 30px"
+        />
+      </a>
+      <p class="w3-medium">
+        @2024 Powered by
+        <a style="text-decoration: none" href="#home">
+          <strong>Heart Sutra NFT</strong></a
+        >. All rights reserved!
+      </p>
+    </footer>
+    <script src="./index.js" type="module"></script>
+  </body>
 </html>
