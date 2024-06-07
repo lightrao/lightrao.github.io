@@ -147,10 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("Error adding all NFTs to MetaMask:", error);
         alert("Something went wrong! Please try again later.");
       } finally {
-        resetButton(
-          elements.addAllNFTsToMetaMaskButton,
-          "Add all NFTs to MetaMask"
-        );
+        resetButton(elements.addAllNFTsToMetaMaskButton);
       }
     }
   }
@@ -158,9 +155,9 @@ document.addEventListener("DOMContentLoaded", () => {
   async function fund(event) {
     event.preventDefault();
     if (await checkMetaMask()) {
-      disableButton(elements.fundButton, "FUNDING...");
+      disableButton(event.target.fundButton, "FUNDING...");
 
-      const formData = new FormData(elements.fundForm);
+      const formData = new FormData(event.target);
       const ethAmountToFund = formData.get("ethAmountToFund");
       const totalPrice = ethers.utils.parseEther(ethAmountToFund);
 
@@ -176,7 +173,7 @@ document.addEventListener("DOMContentLoaded", () => {
           alert(
             "Insufficient balance. Please ensure you have enough ETH to complete the transaction."
           );
-          resetButton(elements.fundButton);
+          resetButton(event.target.fundButton);
           return;
         }
 
@@ -202,7 +199,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("Funding failed:", error);
         alert("Something went wrong! Please try again later.");
       } finally {
-        resetButton(elements.fundButton);
+        resetButton(event.target.fundButton);
       }
     }
   }
@@ -210,15 +207,15 @@ document.addEventListener("DOMContentLoaded", () => {
   async function publicMintNFTTo(event) {
     event.preventDefault();
     if (await checkMetaMask()) {
-      disableButton(elements.publicMintToButton, "MINTING...");
+      disableButton(event.target.publicMintToButton, "MINTING...");
 
-      const formData = new FormData(elements.publicMintToForm);
+      const formData = new FormData(event.target);
       const nbTokens = Number(formData.get("nbTokens"));
       const recipient = formData.get("recipient").trim();
 
       if (!isValidEthereumAddress(recipient)) {
         alert("Invalid Ethereum address. Please enter a valid address.");
-        resetButton(elements.publicMintToButton);
+        resetButton(event.target.publicMintToButton);
         return;
       }
 
@@ -235,7 +232,7 @@ document.addEventListener("DOMContentLoaded", () => {
           alert(
             "Insufficient balance. Please ensure you have enough ETH to complete the transaction."
           );
-          resetButton(elements.publicMintToButton);
+          resetButton(event.target.publicMintToButton);
           return;
         }
 
@@ -246,7 +243,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("Minting failed:", error);
         alert("Something went wrong! Please try again later.");
       } finally {
-        resetButton(elements.publicMintToButton);
+        resetButton(event.target.publicMintToButton);
       }
     }
   }
@@ -254,9 +251,9 @@ document.addEventListener("DOMContentLoaded", () => {
   async function publicSelfMintNFT(event) {
     event.preventDefault();
     if (await checkMetaMask()) {
-      disableButton(elements.publicSelfMintButton, "MINTING...");
+      disableButton(event.target.publicSelfMintButton, "MINTING...");
 
-      const formData = new FormData(elements.publicSelfMintForm);
+      const formData = new FormData(event.target);
       const nbTokens = Number(formData.get("nbTokens"));
 
       try {
@@ -272,7 +269,7 @@ document.addEventListener("DOMContentLoaded", () => {
           alert(
             "Insufficient balance. Please ensure you have enough ETH to complete the transaction."
           );
-          resetButton(elements.publicSelfMintButton);
+          resetButton(event.target.publicSelfMintButton);
           return;
         }
 
@@ -286,7 +283,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("Minting failed:", error);
         alert("Something went wrong! Please try again later.");
       } finally {
-        resetButton(elements.publicSelfMintButton);
+        resetButton(event.target.publicSelfMintButton);
       }
     }
   }
@@ -344,15 +341,15 @@ document.addEventListener("DOMContentLoaded", () => {
   async function ownerMintNFTTo(event) {
     event.preventDefault();
     if (await checkMetaMask()) {
-      disableButton(elements.ownerMintToButton, "MINTING...");
+      disableButton(event.target.ownerMintToButton, "MINTING...");
 
-      const formData = new FormData(elements.ownerMintToForm);
+      const formData = new FormData(event.target);
       const nbTokens = Number(formData.get("nbTokens"));
       const recipient = formData.get("recipient").trim();
 
       if (!isValidEthereumAddress(recipient)) {
         alert("Invalid Ethereum address. Please enter a valid address.");
-        resetButton(elements.ownerMintToButton);
+        resetButton(event.target.ownerMintToButton);
         return;
       }
 
@@ -364,7 +361,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("Minting failed:", error);
         alert("Something went wrong! Please try again later.");
       } finally {
-        resetButton(elements.ownerMintToButton);
+        resetButton(event.target.ownerMintToButton);
       }
     }
   }
@@ -372,9 +369,9 @@ document.addEventListener("DOMContentLoaded", () => {
   async function ownerSelfMintNFT(event) {
     event.preventDefault();
     if (await checkMetaMask()) {
-      disableButton(elements.ownerSelfMintButton, "MINTING...");
+      disableButton(event.target.ownerSelfMintButton, "MINTING...");
 
-      const formData = new FormData(elements.ownerSelfMintForm);
+      const formData = new FormData(event.target);
       const nbTokens = Number(formData.get("nbTokens"));
 
       try {
@@ -388,7 +385,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("Minting failed:", error);
         alert("Something went wrong! Please try again later.");
       } finally {
-        resetButton(elements.ownerSelfMintButton);
+        resetButton(event.target.ownerSelfMintButton);
       }
     }
   }
@@ -458,7 +455,7 @@ document.addEventListener("DOMContentLoaded", () => {
   async function setNFTSaleState(event) {
     event.preventDefault();
     if (await checkMetaMask()) {
-      disableButton(elements.setSaleStateButton, "SETTING SALE STATE...");
+      disableButton(event.target.setSaleStateButton, "SETTING SALE STATE...");
 
       const formData = new FormData(event.target);
       const newState = formData.get("saleState") === "true";
@@ -477,7 +474,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("Error setting sale state:", error);
         alert("Something went wrong! Please try again later.");
       } finally {
-        resetButton(elements.setSaleStateButton);
+        resetButton(event.target.setSaleStateButton);
       }
     }
   }
