@@ -187,6 +187,9 @@ document.addEventListener("DOMContentLoaded", () => {
         logReceiptInformation(receipt);
         alert("Thanks for funding.");
 
+        // Clear input fields of the form
+        clearFormInputs(event.target);
+
         contract.on("Funded", (funder, amount, event) => {
           console.log(
             `${funder} funded ${ethers.utils.formatEther(
@@ -239,6 +242,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const receipt = await publicMintNFTs(recipient, nbTokens, totalPrice);
         logReceiptInformation(receipt);
         alert("Minted Successfully");
+
+        // Clear input fields of the form
+        clearFormInputs(event.target);
       } catch (error) {
         console.error("Minting failed:", error);
         alert("Something went wrong! Please try again later.");
@@ -279,6 +285,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const receipt = await publicMintNFTs(accounts[0], nbTokens, totalPrice);
         logReceiptInformation(receipt);
         alert("Minted Successfully");
+
+        // Clear input fields of the form
+        clearFormInputs(event.target);
       } catch (error) {
         console.error("Minting failed:", error);
         alert("Something went wrong! Please try again later.");
@@ -357,6 +366,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const receipt = await ownerMintNFTs(recipient, nbTokens);
         logReceiptInformation(receipt);
         alert("Minted Successfully");
+
+        // Clear input fields of the form
+        clearFormInputs(event.target);
       } catch (error) {
         console.error("Minting failed:", error);
         alert("Something went wrong! Please try again later.");
@@ -381,6 +393,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const receipt = await ownerMintNFTs(accounts[0], nbTokens);
         logReceiptInformation(receipt);
         alert("Minted Successfully");
+
+        // Clear input fields of the form
+        clearFormInputs(event.target);
       } catch (error) {
         console.error("Minting failed:", error);
         alert("Something went wrong! Please try again later.");
@@ -774,5 +789,13 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error("Invalid address:", error);
       return false;
     }
+  }
+
+  function clearFormInputs(form) {
+    Array.from(form.elements).forEach((input) => {
+      if (input.tagName === "INPUT") {
+        input.value = "";
+      }
+    });
   }
 });
