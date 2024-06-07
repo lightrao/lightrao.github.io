@@ -746,8 +746,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function isValidEthereumAddress(address) {
-    const ethAddressRegex = /^0x[a-fA-F0-9]{40}$/;
-    return ethAddressRegex.test(address);
+    try {
+      const checksumAddress = ethers.utils.getAddress(address);
+      const ethAddressRegex = /^0x[a-fA-F0-9]{40}$/;
+      return ethAddressRegex.test(checksumAddress);
+    } catch (error) {
+      return false;
+    }
   }
 
   function showOrHideOnlyOwnerCanSeeDiv(accounts) {
