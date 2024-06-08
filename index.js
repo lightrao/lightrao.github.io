@@ -155,7 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
   async function fund(event) {
     event.preventDefault();
     if (await checkMetaMask()) {
-      disableButton(event.target.fundButton, "FUNDING...");
+      disableButton(elements.fundButton, "FUNDING...");
 
       const formData = new FormData(event.target);
       const ethAmountToFund = formData.get("ethAmountToFund");
@@ -173,7 +173,7 @@ document.addEventListener("DOMContentLoaded", () => {
           alert(
             "Insufficient balance. Please ensure you have enough ETH to complete the transaction."
           );
-          resetButton(event.target.fundButton);
+          resetButton(elements.fundButton);
           return;
         }
 
@@ -199,7 +199,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("Funding failed:", error);
         alert("Something went wrong! Please try again later.");
       } finally {
-        resetButton(event.target.fundButton);
+        resetButton(elements.fundButton);
         clearFormInputs(event.target);
       }
     }
@@ -208,7 +208,7 @@ document.addEventListener("DOMContentLoaded", () => {
   async function publicMintNFTTo(event) {
     event.preventDefault();
     if (await checkMetaMask()) {
-      disableButton(event.target.publicMintToButton, "MINTING...");
+      disableButton(elements.publicMintToButton, "MINTING...");
 
       const formData = new FormData(event.target);
       const nbTokens = Number(formData.get("nbTokens"));
@@ -216,7 +216,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (!isValidEthereumAddress(recipient)) {
         alert("Invalid Ethereum address. Please enter a valid address.");
-        resetButton(event.target.publicMintToButton);
+        resetButton(elements.publicMintToButton);
         return;
       }
 
@@ -233,7 +233,7 @@ document.addEventListener("DOMContentLoaded", () => {
           alert(
             "Insufficient balance. Please ensure you have enough ETH to complete the transaction."
           );
-          resetButton(event.target.publicMintToButton);
+          resetButton(elements.publicMintToButton);
           return;
         }
 
@@ -244,7 +244,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("Minting failed:", error);
         alert("Something went wrong! Please try again later.");
       } finally {
-        resetButton(event.target.publicMintToButton);
+        resetButton(elements.publicMintToButton);
         clearFormInputs(event.target);
       }
     }
@@ -253,7 +253,7 @@ document.addEventListener("DOMContentLoaded", () => {
   async function publicSelfMintNFT(event) {
     event.preventDefault();
     if (await checkMetaMask()) {
-      disableButton(event.target.publicSelfMintButton, "MINTING...");
+      disableButton(elements.publicSelfMintButton, "MINTING...");
 
       const formData = new FormData(event.target);
       const nbTokens = Number(formData.get("nbTokens"));
@@ -271,7 +271,7 @@ document.addEventListener("DOMContentLoaded", () => {
           alert(
             "Insufficient balance. Please ensure you have enough ETH to complete the transaction."
           );
-          resetButton(event.target.publicSelfMintButton);
+          resetButton(elements.publicSelfMintButton);
           return;
         }
 
@@ -285,7 +285,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("Minting failed:", error);
         alert("Something went wrong! Please try again later.");
       } finally {
-        resetButton(event.target.publicSelfMintButton);
+        resetButton(elements.publicSelfMintButton);
         clearFormInputs(event.target);
       }
     }
@@ -344,7 +344,7 @@ document.addEventListener("DOMContentLoaded", () => {
   async function ownerMintNFTTo(event) {
     event.preventDefault();
     if (await checkMetaMask()) {
-      disableButton(event.target.ownerMintToButton, "MINTING...");
+      disableButton(elements.ownerMintToButton, "MINTING...");
 
       const formData = new FormData(event.target);
       const nbTokens = Number(formData.get("nbTokens"));
@@ -352,7 +352,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (!isValidEthereumAddress(recipient)) {
         alert("Invalid Ethereum address. Please enter a valid address.");
-        resetButton(event.target.ownerMintToButton);
+        resetButton(elements.ownerMintToButton);
         return;
       }
 
@@ -364,7 +364,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("Minting failed:", error);
         alert("Something went wrong! Please try again later.");
       } finally {
-        resetButton(event.target.ownerMintToButton);
+        resetButton(elements.ownerMintToButton);
         clearFormInputs(event.target);
       }
     }
@@ -373,7 +373,7 @@ document.addEventListener("DOMContentLoaded", () => {
   async function ownerSelfMintNFT(event) {
     event.preventDefault();
     if (await checkMetaMask()) {
-      disableButton(event.target.ownerSelfMintButton, "MINTING...");
+      disableButton(elements.ownerSelfMintButton, "MINTING...");
 
       const formData = new FormData(event.target);
       const nbTokens = Number(formData.get("nbTokens"));
@@ -389,7 +389,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("Minting failed:", error);
         alert("Something went wrong! Please try again later.");
       } finally {
-        resetButton(event.target.ownerSelfMintButton);
+        resetButton(elements.ownerSelfMintButton);
         clearFormInputs(event.target);
       }
     }
@@ -460,7 +460,7 @@ document.addEventListener("DOMContentLoaded", () => {
   async function setNFTSaleState(event) {
     event.preventDefault();
     if (await checkMetaMask()) {
-      disableButton(event.target.setSaleStateButton, "SETTING SALE STATE...");
+      disableButton(elements.setSaleStateButton, "SETTING SALE STATE...");
 
       const formData = new FormData(event.target);
       const newState = formData.get("saleState") === "true";
@@ -479,7 +479,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("Error setting sale state:", error);
         alert("Something went wrong! Please try again later.");
       } finally {
-        resetButton(event.target.setSaleStateButton);
+        resetButton(elements.setSaleStateButton);
       }
     }
   }
