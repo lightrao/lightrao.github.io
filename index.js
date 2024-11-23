@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   async function showCurrentMintPricePerToken() {
-    if (await checkMetaMask()) {
+    if ((await checkMetaMask()) && (await checkNetwork())) {
       try {
         const price = await getCurrentMintPricePerToken();
         tempCurrentMintPricePerTokenInETH = price;
@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   async function addAllNFTsToMetaMask() {
-    if (await checkMetaMask()) {
+    if ((await checkMetaMask()) && (await checkNetwork())) {
       disableButton(elements.addAllNFTsToMetaMaskButton, "ADDING NFTs...");
       try {
         const accounts = await ethereum.request({
@@ -160,7 +160,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   async function fund(event) {
     event.preventDefault();
-    if (await checkMetaMask()) {
+    if ((await checkMetaMask()) && (await checkNetwork())) {
       disableButton(elements.fundButton, "FUNDING...");
 
       const formData = new FormData(event.target);
@@ -213,7 +213,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   async function publicMintNFTTo(event) {
     event.preventDefault();
-    if (await checkMetaMask()) {
+    if ((await checkMetaMask()) && (await checkNetwork())) {
       disableButton(elements.publicMintToButton, "MINTING...");
 
       const formData = new FormData(event.target);
@@ -263,7 +263,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   async function publicSelfMintNFT(event) {
     event.preventDefault();
-    if (await checkMetaMask()) {
+    if ((await checkMetaMask()) && (await checkNetwork())) {
       disableButton(elements.publicSelfMintButton, "MINTING...");
 
       const formData = new FormData(event.target);
@@ -339,7 +339,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   async function showTokensLeft() {
-    if (await checkMetaMask()) {
+    if ((await checkMetaMask()) && (await checkNetwork())) {
       try {
         const tokensLeft = await getTokensLeft();
         updateSpanText(elements.showTokensLeftSpan, tokensLeft.toString());
@@ -350,7 +350,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   async function showTotalSupply() {
-    if (await checkMetaMask()) {
+    if ((await checkMetaMask()) && (await checkNetwork())) {
       try {
         const totalSupply = await getTotalSupply();
         updateSpanText(elements.showTotalSupplySpan, totalSupply.toString());
@@ -362,7 +362,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   async function ownerMintNFTTo(event) {
     event.preventDefault();
-    if (await checkMetaMask()) {
+    if ((await checkMetaMask()) && (await checkNetwork())) {
       disableButton(elements.ownerMintToButton, "MINTING...");
 
       const formData = new FormData(event.target);
@@ -391,7 +391,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   async function ownerSelfMintNFT(event) {
     event.preventDefault();
-    if (await checkMetaMask()) {
+    if ((await checkMetaMask()) && (await checkNetwork())) {
       disableButton(elements.ownerSelfMintButton, "MINTING...");
 
       const formData = new FormData(event.target);
@@ -415,7 +415,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   async function showBalance() {
-    if (await checkMetaMask()) {
+    if ((await checkMetaMask()) && (await checkNetwork())) {
       disableButton(elements.balanceButton, "FETCHING...");
       try {
         const balance = await getBalance();
@@ -433,7 +433,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   async function showSaleState() {
-    if (await checkMetaMask()) {
+    if ((await checkMetaMask()) && (await checkNetwork())) {
       disableButton(elements.showSaleStateButton, "FETCHING...");
       try {
         const saleState = await getSaleState();
@@ -449,7 +449,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   async function withdraw() {
-    if (await checkMetaMask()) {
+    if ((await checkMetaMask()) && (await checkNetwork())) {
       disableButton(elements.withdrawButton, "WITHDRAWING...");
       try {
         const balance = await getBalance();
@@ -478,7 +478,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   async function setNFTSaleState(event) {
     event.preventDefault();
-    if (await checkMetaMask()) {
+    if ((await checkMetaMask()) && (await checkNetwork())) {
       disableButton(elements.setSaleStateButton, "SETTING SALE STATE...");
 
       const formData = new FormData(event.target);
