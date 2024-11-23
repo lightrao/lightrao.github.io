@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
    ********************************************/
 
   async function connect() {
-    if (await checkMetaMask()) {
+    if ((await checkMetaMask()) && (await checkNetwork())) {
       try {
         const accounts = await ethereum.request({
           method: "eth_requestAccounts",
@@ -98,7 +98,13 @@ document.addEventListener("DOMContentLoaded", () => {
           );
         }
       } catch (error) {
-        handleConnectError(error);
+        if (error.code === 4001) {
+          // EIP-1193 userRejectedRequest error
+          console.error("MetaMask connection error:", error);
+          alert("Connection request was rejected.");
+        } else {
+          handleConnectError(error);
+        }
       }
     }
   }
@@ -214,6 +220,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const nbTokens = Number(formData.get("nbTokens"));
       const recipient = formData.get("recipient").trim();
 
+      if (nbTokens < 1 || nbTokens > 100) {
+        alert("Please enter a number between 1 and 100.");
+        return;
+      }
+
       if (!isValidEthereumAddress(recipient)) {
         alert("Invalid Ethereum address. Please enter a valid address.");
         resetButton(elements.publicMintToButton);
@@ -258,6 +269,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const formData = new FormData(event.target);
       const nbTokens = Number(formData.get("nbTokens"));
 
+      if (nbTokens < 1 || nbTokens > 100) {
+        alert("Please enter a number between 1 and 100.");
+        return;
+      }
+
       try {
         const price = await getCurrentMintPricePerToken();
         const totalPrice = price.mul(nbTokens);
@@ -281,6 +297,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const receipt = await publicMintNFTs(accounts[0], nbTokens, totalPrice);
         logReceiptInformation(receipt);
         alert("Minted Successfully");
+        // Refresh token balance
+        await showTotalSupply();
+        await showTokensLeft();
       } catch (error) {
         console.error("Minting failed:", error);
         alert("Something went wrong! Please try again later.");
@@ -726,6 +745,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  async function checkNetwork() {
+    const EXPECTED_CHAIN_ID = 1;
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const { chainId } = await provider.getNetwork();
+    console.log("Network's chainId:", chainId);
+    if (chainId !== EXPECTED_CHAIN_ID) {
+      alert("Please connect to the Ethereum Mainnet.");
+      return false;
+    }
+    return true;
+  }
+
   function disableButton(button, text) {
     if (button) {
       button.setAttribute("data-original-text", button.innerText); // Store the original text
@@ -748,13 +779,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function isValidEthereumAddress(address) {
-    try {
-      const checksumAddress = ethers.utils.getAddress(address);
-      const ethAddressRegex = /^0x[a-fA-F0-9]{40}$/;
-      return ethAddressRegex.test(checksumAddress);
-    } catch (error) {
-      return false;
-    }
+    return ethers.utils.isAddress(address);
   }
 
   function showOrHideOnlyOwnerCanSeeDiv(accounts) {
@@ -762,7 +787,10 @@ document.addEventListener("DOMContentLoaded", () => {
       elements.onlyOwnerCanSeeDiv.style.display = "none";
 
     if (elements.onlyOwnerCanSeeDiv) {
-      if (areEthAddressesEqual(accounts[0], ownerAddress)) {
+      if (
+        accounts.length > 0 &&
+        areEthAddressesEqual(accounts[0], ownerAddress)
+      ) {
         elements.onlyOwnerCanSeeDiv.style.display = "block";
       } else {
         elements.onlyOwnerCanSeeDiv.style.display = "none";
